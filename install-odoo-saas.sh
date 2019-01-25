@@ -222,7 +222,7 @@
      then
          POSTGRES_PACKAGES="postgresql-client-11.1"
      else
-         POSTGRES_PACKAGES="postgresql-11.1 postgresql-contrib-11.1 postgresql-client-11.1"
+         POSTGRES_PACKAGES="postgresql-11 postgresql-contrib-11 postgresql-client-11"
      fi
      apt-get install $POSTGRES_PACKAGES -y || \
          curl --silent https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add - && \
