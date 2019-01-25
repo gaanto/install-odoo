@@ -26,7 +26,7 @@
  export ODOO_DATA_DIR=${ODOO_DATA_DIR:-"/opt/odoo/data/"}
  export BACKUPS_DIR=${BACKUPS_DIR:-"/opt/odoo/backups/"}
  export LOGS_DIR=${LOGS_DIR:-"/var/log/odoo/"}
- export OPENERP_SERVER=${OPENERP_SERVER:-/etc/openerp-server.conf}
+ export ODOO_SERVER=${ODOO_SERVER:-/etc/odoo-server.conf}
 
  ## Cloning
  export CLONE_IT_PROJECTS_LLC=${CLONE_IT_PROJECTS_LLC:-"no"}
@@ -343,11 +343,11 @@
      cd $INSTALL_ODOO_DIR
      if [[ "$INIT_ODOO_CONFIG" != "docker-container" ]]
      then
-         cp ./configs/odoo-server.conf $OPENERP_SERVER
+         cp ./configs/odoo-server.conf $ODOO_SERVER
      fi
-     eval "${PERL_UPDATE_ENV} < $OPENERP_SERVER" | sponge $OPENERP_SERVER
-     chown ${ODOO_USER}:${ODOO_USER} $OPENERP_SERVER
-     chmod 600 $OPENERP_SERVER
+     eval "${PERL_UPDATE_ENV} < $ODOO_SERVER" | sponge $ODOO_SERVER
+     chown ${ODOO_USER}:${ODOO_USER} $ODOO_SERVER
+     chmod 600 $ODOO_SERVER
  fi
 
 
@@ -363,7 +363,7 @@
      #  -> ...
      ADDONS_PATH=`ls -d1 $ADDONS_DIR/*/* | tr '\n' ','`
      ADDONS_PATH=`echo $ODOO_SOURCE_DIR/odoo/addons,$ODOO_SOURCE_DIR/addons,$ADDONS_PATH | sed "s,//,/,g" | sed "s,/,\\\\\/,g" | sed "s,.$,,g" `
-     sed -ibak "s/addons_path.*/addons_path = $ADDONS_PATH/" $OPENERP_SERVER
+     sed -ibak "s/addons_path.*/addons_path = $ADDONS_PATH/" $ODOO_SERVER
 
  fi
 
@@ -568,7 +568,7 @@
          BACKUP_EXEC="${ODOO_USER} odoo-backup.py"
      elif [[ "$INIT_BACKUPS" == "docker-host" ]]
      then
-         BACKUP_EXEC="root docker exec -u root -i -t ${ODOO_DOCKER} /usr/local/bin/odoo-backup.py -d ${ODOO_DATABASE} -c ${OPENERP_SERVER} -p ${BACKUPS_DIR}"
+         BACKUP_EXEC="root docker exec -u root -i -t ${ODOO_DOCKER} /usr/local/bin/odoo-backup.py -d ${ODOO_DATABASE} -c ${ODOO_SERVER} -p ${BACKUPS_DIR}"
      fi
      echo "### check url for undestanding time parameters: https://github.com/xolox/python-rotate-backups" >> /etc/crontab
      echo -e "#6 6\t* * *\t${BACKUP_EXEC} --no-save-filestore --daily 8 --weekly 0 --monthly 0 --yearly 0" >> /etc/crontab
