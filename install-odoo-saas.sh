@@ -32,6 +32,7 @@
  export CLONE_IT_PROJECTS_LLC=${CLONE_IT_PROJECTS_LLC:-"no"}
  export CLONE_OCA=${CLONE_OCA:-"no"}
  export CLONE_ODOO=${CLONE_ODOO:-"no"}
+ export CLONE_GOD_LLC=${CLONE_GOD_LLC:-"no"}
 
  ## Docker Names
  export ODOO_DOCKER=${ODOO_DOCKER:-"odoo"}
@@ -78,10 +79,10 @@
  source /etc/os-release
  if [[ $VERSION == *"Trusty"* ]]
  then
-     OS_RELEASE="trusty"
+    OS_RELEASE="trusty"
  elif [[ $VERSION == *"jessie"* ]]
  then
-     OS_RELEASE="jessie"
+    OS_RELEASE="jessie"
  fi
  echo "OS_RELEASE=$OS_RELEASE"
 
@@ -219,9 +220,9 @@
     ### PostgreSQL
      if [[ "$INIT_POSTGRESQL" == "docker-container" ]]
      then
-         POSTGRES_PACKAGES="postgresql-client-9.5"
+         POSTGRES_PACKAGES="postgresql-client-11.1"
      else
-         POSTGRES_PACKAGES="postgresql-9.5 postgresql-contrib-9.5 postgresql-client-9.5"
+         POSTGRES_PACKAGES="postgresql-11.1 postgresql-contrib-11.1 postgresql-client-11.1"
      fi
      apt-get install $POSTGRES_PACKAGES -y || \
          curl --silent https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add - && \
@@ -290,7 +291,7 @@
      REPOS=( "${REPOS[@]}" "https://github.com/OCA/bank-payment.git OCA/bank-payment")
      REPOS=( "${REPOS[@]}" "https://github.com/OCA/bank-statement-import.git OCA/bank-statement-import")
      REPOS=( "${REPOS[@]}" "https://github.com/OCA/bank-statement-reconcile.git OCA/bank-statement-reconcile")
-     REPOS=( "${REPOS[@]}" " https://github.com/OCA/product-attribute.git OCA/product-attribute")
+     REPOS=( "${REPOS[@]}" "https://github.com/OCA/product-attribute.git OCA/product-attribute")
      REPOS=( "${REPOS[@]}" "https://github.com/OCA/account-invoicing.git OCA/account-invoicing")
      REPOS=( "${REPOS[@]}" "https://github.com/OCA/account-closing.git OCA/account-closing")
  fi
@@ -305,6 +306,11 @@
      REPOS=( "${REPOS[@]}" "https://github.com/it-projects-llc/mail-addons.git it-projects-llc/mail-addons")
      REPOS=( "${REPOS[@]}" "https://github.com/it-projects-llc/saas-addons.git it-projects-llc/saas-addons")
      REPOS=( "${REPOS[@]}" "https://github.com/it-projects-llc/odoo-telegram.git it-projects-llc/odoo-telegram")
+ fi
+ 
+ if [[ "$CLONE_GOD_LLC" == "yes" ]]
+ then
+     REPOS=( "${REPOS[@]}" "https://gitlab.com/gaanto/god.git gaanto/god")
  fi
 
  if [[ "${REPOS}" != "" ]]
