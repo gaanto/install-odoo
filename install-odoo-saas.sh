@@ -26,7 +26,7 @@
  export ODOO_DATA_DIR=${ODOO_DATA_DIR:-"/opt/odoo/data/"}
  export BACKUPS_DIR=${BACKUPS_DIR:-"/opt/odoo/backups/"}
  export LOGS_DIR=${LOGS_DIR:-"/var/log/odoo/"}
- export OPENERP_SERVER=${OPENERP_SERVER:-/etc/openerp-server.conf}
+ export OPENERP_SERVER=${OPENERP_SERVER:-/etc/odoo/openerp-server.conf}
 
  ## Cloning
  export CLONE_IT_PROJECTS_LLC=${CLONE_IT_PROJECTS_LLC:-"no"}
@@ -47,10 +47,10 @@
  export DB_PASS=${DB_PASS:-`< /dev/urandom tr -dc A-Za-z0-9 | head -c16;echo;`}
 
  ## Odoo
- export ODOO_DOMAIN=${ODOO_DOMAIN:-odoo.example.com}
- export ODOO_DATABASE=${ODOO_DATABASE:-odoo.example.com}
+ export ODOO_DOMAIN=${ODOO_DOMAIN:-mn.systems}
+ export ODOO_DATABASE=${ODOO_DATABASE:-mn.systems}
  export ODOO_USER=${ODOO_USER:-odoo}
- export ODOO_BRANCH=${ODOO_BRANCH:-10.0}
+ export ODOO_BRANCH=${ODOO_BRANCH:-11.0}
  export ODOO_MASTER_PASS=${ODOO_MASTER_PASS:-`< /dev/urandom tr -dc A-Za-z0-9 | head -c16;echo;`}
 
  ## Nginx
@@ -306,6 +306,11 @@
      REPOS=( "${REPOS[@]}" "https://github.com/it-projects-llc/odoo-telegram.git it-projects-llc/odoo-telegram")
  fi
 
+ if [[ "$CLONE_GAANTO_LLC" == "yes" ]]
+ then
+     REPOS=( "${REPOS[@]}" "https://gitlab.com/gaanto/god.git gaanto/mn.systems")
+ fi
+
  if [[ "${REPOS}" != "" ]]
  then
      apt-get install -y git
@@ -338,6 +343,7 @@
      then
          cp ./configs/odoo-server.conf $OPENERP_SERVER
      fi
+     mkdir /etc/odoo/
      eval "${PERL_UPDATE_ENV} < $OPENERP_SERVER" | sponge $OPENERP_SERVER
      chown ${ODOO_USER}:${ODOO_USER} $OPENERP_SERVER
      chmod 600 $OPENERP_SERVER

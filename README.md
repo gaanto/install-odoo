@@ -42,6 +42,7 @@ with or without using [Amazon RDS](https://aws.amazon.com/rds/), with additional
     INIT_DIRS=yes \
     CLONE_ODOO=yes \
     CLONE_IT_PROJECTS_LLC=yes \
+    CLONE_GAANTO_LLC=yes \
     CLONE_OCA=yes \
     UPDATE_ADDONS_PATH=yes \
     ADD_AUTOINSTALL_MODULES="['ir_attachment_force_storage']" \
