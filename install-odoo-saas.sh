@@ -26,7 +26,7 @@
  export ODOO_DATA_DIR=${ODOO_DATA_DIR:-"/opt/odoo/data/"}
  export BACKUPS_DIR=${BACKUPS_DIR:-"/opt/odoo/backups/"}
  export LOGS_DIR=${LOGS_DIR:-"/var/log/odoo/"}
- export ODOO_SERVER=${ODOO_SERVER:-/etc/odoo-server.conf}
+ export ODOO_SERVER=${ODOO_SERVER:-/etc/odoo/odoo-server.conf}
 
  ## Cloning
  export CLONE_IT_PROJECTS_LLC=${CLONE_IT_PROJECTS_LLC:-"no"}
@@ -49,9 +49,9 @@
 
  ## Odoo
  export ODOO_DOMAIN=${ODOO_DOMAIN:-mn.systems}
- export ODOO_DATABASE=${ODOO_DATABASE:-odoo.example.com}
+ export ODOO_DATABASE=${ODOO_DATABASE:-mn.systems}
  export ODOO_USER=${ODOO_USER:-odoo}
- export ODOO_BRANCH=${ODOO_BRANCH:-12.0}
+ export ODOO_BRANCH=${ODOO_BRANCH:-11.0}
  export ODOO_MASTER_PASS=${ODOO_MASTER_PASS:-`< /dev/urandom tr -dc A-Za-z0-9 | head -c16;echo;`}
 
  ## Nginx
@@ -310,7 +310,7 @@
  
  if [[ "$CLONE_GOD_LLC" == "yes" ]]
  then
-     REPOS=( "${REPOS[@]}" "https://gitlab.com/gaanto/god.git gaanto/god")
+     REPOS=( "${REPOS[@]}" "https://altanmur:gitlab.com/gaanto/god.git gaanto/god")
  fi
 
  if [[ "${REPOS}" != "" ]]
@@ -328,7 +328,6 @@
      chown -R ${ODOO_USER}:${ODOO_USER} $ADDONS_DIR || true
  fi
 
-
  #from http://stackoverflow.com/questions/2914220/bash-templating-how-to-build-configuration-files-from-templates-with-bash
  export PERL_UPDATE_ENV="perl -p -e 's/\{\{([^}]+)\}\}/defined \$ENV{\$1} ? \$ENV{\$1} : \$&/eg' "
 
@@ -345,6 +344,7 @@
      then
          cp ./configs/odoo-server.conf $ODOO_SERVER
      fi
+     mkdir "/etc/odoo"
      eval "${PERL_UPDATE_ENV} < $ODOO_SERVER" | sponge $ODOO_SERVER
      chown ${ODOO_USER}:${ODOO_USER} $ODOO_SERVER
      chmod 600 $ODOO_SERVER
