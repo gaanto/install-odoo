@@ -310,7 +310,7 @@
  
  if [[ "$CLONE_GOD_LLC" == "yes" ]]
  then
-     REPOS=( "${REPOS[@]}" "https://altanmur:gitlab.com/gaanto/god.git gaanto/god")
+     REPOS=( "${REPOS[@]}" "https://gitlab.com/gaanto/god.git gaanto/mn.systems")
  fi
 
  if [[ "${REPOS}" != "" ]]
@@ -344,7 +344,7 @@
      then
          cp ./configs/odoo-server.conf $ODOO_SERVER
      fi
-     mkdir "/etc/odoo"
+     mkdir -p /etc/odoo/
      eval "${PERL_UPDATE_ENV} < $ODOO_SERVER" | sponge $ODOO_SERVER
      chown ${ODOO_USER}:${ODOO_USER} $ODOO_SERVER
      chmod 600 $ODOO_SERVER
