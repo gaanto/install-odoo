@@ -1,3 +1,6 @@
+addons_path = /usr/local/src/odoo-source/odoo/addons,/usr/local/src/odoo-source/addons,/usr/local/src/odoo-extra-addons/it-projects-llc/e-commerce,/usr/local/src/odoo-extra-addons/it-projects-llc/access-addons,/usr/local/src/odoo-extra-addons/it-projects-llc/mail-addons,/usr/local/src/odoo-extra-addons/it-projects-llc/misc-addons,/usr/local/src/odoo-extra-addons/it-projects-llc/pos-addons,/usr/local/src/odoo-extra-addons/it-projects-llc/saas-addons,/usr/local/src/odoo-extra-addons/it-projects-llc/website-addons,/usr/local/src/odoo-extra-addons/it-projects-llc/odoo-telegram,/usr/local/src/odoo-extra-addons/OCA/account-closing,/usr/local/src/odoo-extra-addons/OCA/account-financial-reporting,/usr/local/src/odoo-extra-addons/OCA/account-financial-tools,/usr/local/src/odoo-extra-addons/OCA/account-invoicing,/usr/local/src/odoo-extra-addons/OCA/bank-payment,/usr/local/src/odoo-extra-addons/OCA/bank-statement-import,/usr/local/src/odoo-extra-addons/OCA/bank-statement-reconcile,/usr/local/src/odoo-extra-addons/OCA/commission,/usr/local/src/odoo-extra-addons/OCA/contract,/usr/local/src/odoo-extra-addons/OCA/event,/usr/local/src/odoo-extra-addons/OCA/hr,/usr/local/src/odoo-extra-addons/OCA/partner-contact,/usr/local/src/odoo-extra-addons/OCA/pos,/usr/local/src/odoo-extra-addons/OCA/product-attribute,/usr/local/src/odoo-extra-addons/OCA/queue,/usr/local/src/odoo-extra-addons/OCA/reporting-engine,/usr/local/src/odoo-extra-addons/OCA/rma,/usr/local/src/odoo-extra-addons/OCA/sale-workflow,/usr/local/src/odoo-extra-addons/OCA/server-tools,/usr/local/src/odoo-extra-addons/OCA/web,/usr/local/src/odoo-extra-addons/OCA/website,/usr/local/src/odoo-extra-addons/gaanto/god/addons
+
+
 # ODOO
 
 sudo ODOO_BRANCH=11.0 \
@@ -30,21 +33,19 @@ INIT_POSTGRESQL=yes \
 /bin/bash -x install-odoo-saas.sh
 
 
-INIT_SAAS_TOOLS_VALUE="\
+sudo INIT_SAAS_TOOLS_VALUE="\
 --portal-create \
 --server-create \
 --plan-create \
 --odoo-script=/usr/local/src/odoo-source/odoo-bin \
---odoo-config=/etc/odoo-server.conf \
---admin-password='${ODOO_MASTER_PASS}' \
+--odoo-config=/etc/odoo/odoo-server.conf \
+--admin-password='Q1bGjKUaMheIWlUO' \
 --portal-db-name=mn.systems \
 --server-db-name=server-1.mn.systems \
 --plan-template-db-name=template-1.mn.systems \
---plan-clients=demo-%i.mn.systems \
-"
-INIT_SAAS_TOOLS=$INIT_SAAS_TOOLS_VALUE bash -x install-odoo-saas.sh
+--plan-clients=demo-%i.mn.systems" INIT_SAAS_TOOLS=$INIT_SAAS_TOOLS_VALUE bash -x install-odoo-saas.sh
 
+sudo pip3 install boto rotate_backups_s3 pysftp oauthlib simplejson
 
-
-sudo su - odoo -s /bin/bash -c  "/usr/local/src/odoo-source/odoo-bin -c /etc/odoo-server.conf"
+sudo su - odoo -s /bin/bash -c  "/usr/local/src/odoo-source/odoo-bin -c /etc/odoo/odoo-server.conf"
 
