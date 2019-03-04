@@ -1,0 +1,19 @@
+sudo ODOO_BRANCH=12.0 \
+INSTALL_DEPENDENCIES=yes \
+INIT_POSTGRESQL=no \
+INIT_BACKUPS=yes \
+INIT_NGINX=yes \
+INIT_NGINX_SSL=yes \
+INIT_START_SCRIPTS=yes \
+INIT_ODOO_CONFIG=yes \
+INIT_USER=yes \
+INIT_DIRS=yes \
+CLONE_ODOO=yes \
+CLONE_IT_PROJECTS_LLC=yes \
+CLONE_OCA=yes \
+CLONE_GOD_LLC=yes \
+ODOO_DOMAIN=mn.systems \
+ODOO_DATABASE=mn.systems \
+UPDATE_ADDONS_PATH=yes \
+INIT_BACKUPS=yes \
+/bin/bash -x install-odoo-saas.sh
