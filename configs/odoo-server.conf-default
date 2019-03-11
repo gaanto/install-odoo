@@ -1,0 +1,84 @@
+[options]
+addons_path = /usr/local/src/odoo-source/odoo/addons,/usr/local/src/odoo-source/addons,/usr/local/src/odoo-extra-addons/it-projects-llc/e-commerce,/usr/local/src/odoo-extra-addons/it-projects-llc/access-addons,/usr/local/src/odoo-extra-addons/it-projects-llc/mail-addons,/usr/local/src/odoo-extra-addons/it-projects-llc/misc-addons,/usr/local/src/odoo-extra-addons/it-projects-llc/pos-addons,/usr/local/src/odoo-extra-addons/it-projects-llc/saas-addons,/usr/local/src/odoo-extra-addons/it-projects-llc/website-addons,/usr/local/src/odoo-extra-addons/it-projects-llc/odoo-telegram,/usr/local/src/odoo-extra-addons/OCA/account-closing,/usr/local/src/odoo-extra-addons/OCA/account-financial-reporting,/usr/local/src/odoo-extra-addons/OCA/account-financial-tools,/usr/local/src/odoo-extra-addons/OCA/account-invoicing,/usr/local/src/odoo-extra-addons/OCA/bank-payment,/usr/local/src/odoo-extra-addons/OCA/bank-statement-import,/usr/local/src/odoo-extra-addons/OCA/bank-statement-reconcile,/usr/local/src/odoo-extra-addons/OCA/commission,/usr/local/src/odoo-extra-addons/OCA/contract,/usr/local/src/odoo-extra-addons/OCA/event,/usr/local/src/odoo-extra-addons/OCA/hr,/usr/local/src/odoo-extra-addons/OCA/partner-contact,/usr/local/src/odoo-extra-addons/OCA/pos,/usr/local/src/odoo-extra-addons/OCA/product-attribute,/usr/local/src/odoo-extra-addons/OCA/queue,/usr/local/src/odoo-extra-addons/OCA/reporting-engine,/usr/local/src/odoo-extra-addons/OCA/rma,/usr/local/src/odoo-extra-addons/OCA/sale-workflow,/usr/local/src/odoo-extra-addons/OCA/server-tools,/usr/local/src/odoo-extra-addons/OCA/web,/usr/local/src/odoo-extra-addons/OCA/website,/usr/local/src/odoo-extra-addons/gaanto/mn.systems/addons
+#addons_path = /usr/local/src/odoo-source/odoo/addons,/usr/local/src/odoo-source/addons,/usr/local/src/odoo-extra-addons/it-projects-llc/e-commerce,/usr/local/src/odoo-extra-addons/it-projects-llc/access-addons,/usr/local/src/odoo-extra-addons/it-projects-llc/mail-addons,/usr/local/src/odoo-extra-addons/it-projects-llc/misc-addons,/usr/local/src/odoo-extra-addons/it-projects-llc/pos-addons,/usr/local/src/odoo-extra-addons/it-projects-llc/saas-addons,/usr/local/src/odoo-extra-addons/it-projects-llc/website-addons,/usr/local/src/odoo-extra-addons/it-projects-llc/odoo-telegram,/usr/local/src/odoo-extra-addons/OCA/account-closing,/usr/local/src/odoo-extra-addons/OCA/account-financial-reporting,/usr/local/src/odoo-extra-addons/OCA/account-financial-tools,/usr/local/src/odoo-extra-addons/OCA/account-invoicing,/usr/local/src/odoo-extra-addons/OCA/bank-payment,/usr/local/src/odoo-extra-addons/OCA/bank-statement-import,/usr/local/src/odoo-extra-addons/OCA/bank-statement-reconcile,/usr/local/src/odoo-extra-addons/OCA/commission,/usr/local/src/odoo-extra-addons/OCA/contract,/usr/local/src/odoo-extra-addons/OCA/event,/usr/local/src/odoo-extra-addons/OCA/hr,/usr/local/src/odoo-extra-addons/OCA/partner-contact,/usr/local/src/odoo-extra-addons/OCA/pos,/usr/local/src/odoo-extra-addons/OCA/product-attribute,/usr/local/src/odoo-extra-addons/OCA/queue,/usr/local/src/odoo-extra-addons/OCA/reporting-engine,/usr/local/src/odoo-extra-addons/OCA/rma,/usr/local/src/odoo-extra-addons/OCA/sale-workflow,/usr/local/src/odoo-extra-addons/OCA/server-tools,/usr/local/src/odoo-extra-addons/OCA/web,/usr/local/src/odoo-extra-addons/OCA/website,/usr/local/src/odoo-extra-addons/gaanto/mn.systems/addons
+#addons_path = /usr/local/src/odoo-source/odoo/addons,/usr/local/src/odoo-source/addons
+admin_passwd = Q1bGjKUaMheIWlUO
+auto_reload = False
+csv_internal_sep = ,
+data_dir=/opt/odoo/.local/share/Odoo
+
+# Default Value: Will show database selector if there are more than one database
+#dbfilter  = .*
+
+# Select database automatically by domain. E.g. http://portal.example.com will show "portal.example.com" database
+dbfilter = ^%h$
+
+# Select database automatically by first subdomain (www is ignored). E.g. http://my.portal.example.com and http://www.my.portal.example.com will show database "my" 
+#dbfilter = ^%d$
+
+db_user = odoo
+db_template = template1
+db_host = 192.168.168.5
+db_maxconn = 64
+db_name = False
+db_password = WSms57f855J79FBX
+db_port = 5432
+debug_mode = False
+demo = {}
+email_from = False
+#import_partial = /opt/odoo/.local/share/User/import/odoo.import.temp   #needed for long-running data imports
+import_partial = 
+limit_memory_hard = 25000000000
+limit_memory_soft = 24000000000
+limit_request = 8192
+limit_time_cpu = 10800
+limit_time_real = 14400
+list_db = True
+
+# uncomment below to activate debug logs
+#log_handler = ['["[\':DEBUG\']"]']
+#log_level = debug
+
+# should be set in run command (i.e. via --logfile)
+#logfile = /var/log/odoo/odoo-server.log
+
+login_message = False
+logrotate = True
+longpolling_port = 8072
+max_cron_threads = 7
+netrpc = False
+netrpc_interface = 127.0.0.1
+netrpc_port = 8070
+osv_memory_age_limit = 12.0
+osv_memory_count_limit = False
+pg_path = None
+pidfile = False
+proxy_mode = True
+reportgz = False
+secure_cert_file = /etc/nginx/XXXX.crt
+secure_pkey_file = /etc/nginx/XXXX.key
+server_wide_modules = None
+smtp_password = GiveMeYourPassBaby   #False
+smtp_port = 465                  
+smtp_server = stmp.example.com   #localhost
+smtp_ssl = True                  #False
+smtp_user = mail@example.com       #False
+static_http_document_root = None
+static_http_enable = False
+static_http_url_prefix = None
+syslog = False
+test_commit = False
+test_enable = False
+test_file = False
+test_report_directory = False
+timezone = False
+translate_modules = ['all']
+unaccent = False
+without_demo = False
+workers = 3
+xmlrpc = True
+xmlrpc_interface = 
+xmlrpc_port = 8069
+xmlrpcs = True
+xmlrpcs_interface = 127.0.0.1
+xmlrpcs_port = 8071
