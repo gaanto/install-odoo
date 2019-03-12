@@ -1,13 +1,14 @@
 #!/bin/bash
 dirs=( "${dirs[@]}" "/usr/local/src/odoo-source/odoo/addons")
 dirs=( "${dirs[@]}" "/usr/local/src/odoo-source/addons")
+dirs=( "${dirs[@]}" "/usr/local/src/odoo-extra-addons/it-projects-llc/e-commerce")
 dirs=( "${dirs[@]}" "/usr/local/src/odoo-extra-addons/it-projects-llc/access-addons")
 dirs=( "${dirs[@]}" "/usr/local/src/odoo-extra-addons/it-projects-llc/mail-addons")
 dirs=( "${dirs[@]}" "/usr/local/src/odoo-extra-addons/it-projects-llc/misc-addons")
 dirs=( "${dirs[@]}" "/usr/local/src/odoo-extra-addons/it-projects-llc/pos-addons")
-dirs=( "${dirs[@]}" "/usr/local/src/odoo-extra-addons/it-projects-llc/saas-addons")
 dirs=( "${dirs[@]}" "/usr/local/src/odoo-extra-addons/it-projects-llc/odoo-saas-addons")
 dirs=( "${dirs[@]}" "/usr/local/src/odoo-extra-addons/it-projects-llc/website-addons")
+dirs=( "${dirs[@]}" "/usr/local/src/odoo-extra-addons/it-projects-llc/odoo-telegram")
 dirs=( "${dirs[@]}" "/usr/local/src/odoo-extra-addons/OCA/account-closing")
 dirs=( "${dirs[@]}" "/usr/local/src/odoo-extra-addons/OCA/account-financial-reporting")
 dirs=( "${dirs[@]}" "/usr/local/src/odoo-extra-addons/OCA/account-financial-tools")
@@ -30,7 +31,6 @@ dirs=( "${dirs[@]}" "/usr/local/src/odoo-extra-addons/OCA/server-tools")
 dirs=( "${dirs[@]}" "/usr/local/src/odoo-extra-addons/OCA/web")
 dirs=( "${dirs[@]}" "/usr/local/src/odoo-extra-addons/OCA/website")
 dirs=( "${dirs[@]}" "/usr/local/src/odoo-extra-addons/gaanto/mn.systems/addons")
-
 
 for dir in "${dirs[@]}"
 do
