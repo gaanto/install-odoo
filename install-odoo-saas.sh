@@ -34,6 +34,9 @@
  export CLONE_ODOO=${CLONE_ODOO:-"no"}
  export CLONE_MUK=${CLONE_MUK:-"no"}
  export CLONE_CYBRO=${CLONE_CYBRO:-"no"}
+ export CLONE_SUNPOP=${CLONE_SUNPOP:-"no"}
+ export CLONE_EDUCAT=${CLONE_EDUCAT:-"no"}
+ export CLONE_ODOOMATES=${CLONE_ODOOMATES:-"no"}
  export CLONE_GOD_LLC=${CLONE_GOD_LLC:-"no"}
 
  ## Docker Names
@@ -318,7 +321,7 @@
      REPOS=( "${REPOS[@]}" "https://github.com/CybroOdoo/CybroAddons.git cybro/CybroAddons")
      REPOS=( "${REPOS[@]}" "https://github.com/CybroOdoo/OpenHRMS.git cybro/OpenHRMS")
  fi 
- if [[ "$CLONE_" == "yes" ]]
+ if [[ "$CLONE_SUNPOP" == "yes" ]]
  then
      REPOS=( "${REPOS[@]}" "https://github.com/guohuadeng/app-odoo.git sunpop.cn/app-odoo")
  fi 
