@@ -32,6 +32,8 @@
  export CLONE_IT_PROJECTS_LLC=${CLONE_IT_PROJECTS_LLC:-"no"}
  export CLONE_OCA=${CLONE_OCA:-"no"}
  export CLONE_ODOO=${CLONE_ODOO:-"no"}
+ export CLONE_MUK=${CLONE_MUK:-"no"}
+ export CLONE_CYBRO=${CLONE_CYBRO:-"no"}
  export CLONE_GOD_LLC=${CLONE_GOD_LLC:-"no"}
 
  ## Docker Names
@@ -281,6 +283,7 @@
      REPOS=( "${REPOS[@]}" "https://github.com/OCA/account-financial-tools.git OCA/account-financial-tools")
      REPOS=( "${REPOS[@]}" "https://github.com/OCA/partner-contact.git OCA/partner-contact")
      REPOS=( "${REPOS[@]}" "https://github.com/OCA/hr.git OCA/hr")
+     REPOS=( "${REPOS[@]}" "https://github.com/OCA/crm.git OCA/crm")
      REPOS=( "${REPOS[@]}" "https://github.com/OCA/pos.git OCA/pos")
      REPOS=( "${REPOS[@]}" "https://github.com/OCA/commission.git OCA/commission")
      REPOS=( "${REPOS[@]}" "https://github.com/OCA/server-tools.git OCA/server-tools")
@@ -294,6 +297,7 @@
      REPOS=( "${REPOS[@]}" "https://github.com/OCA/product-attribute.git OCA/product-attribute")
      REPOS=( "${REPOS[@]}" "https://github.com/OCA/account-invoicing.git OCA/account-invoicing")
      REPOS=( "${REPOS[@]}" "https://github.com/OCA/account-closing.git OCA/account-closing")
+     REPOS=( "${REPOS[@]}" "https://github.com/OCA/oca-github-bot OCA/oca-github-bot")
  fi
 
  if [[ "$CLONE_IT_PROJECTS_LLC" == "yes" ]]
@@ -309,7 +313,33 @@
     #  REPOS=( "${REPOS[@]}" "https://github.com/it-projects-llc/odoo-saas-tools.git it-projects-llc/odoo-saas-addons")
      REPOS=( "${REPOS[@]}" "https://github.com/it-projects-llc/odoo-telegram.git it-projects-llc/odoo-telegram")
  fi
- 
+ if [[ "$CLONE_CYBRO" == "yes" ]]
+ then
+     REPOS=( "${REPOS[@]}" "https://github.com/CybroOdoo/CybroAddons.git cybro/CybroAddons")
+     REPOS=( "${REPOS[@]}" "https://github.com/CybroOdoo/OpenHRMS.git cybro/OpenHRMS")
+ fi 
+ if [[ "$CLONE_" == "yes" ]]
+ then
+     REPOS=( "${REPOS[@]}" "https://github.com/guohuadeng/app-odoo.git sunpop.cn/app-odoo")
+ fi 
+ if [[ "$CLONE_EDUCAT" == "yes" ]]
+ then
+     REPOS=( "${REPOS[@]}" "https://github.com/openeducat/openeducat_erp.git EDUCAT/openeducat_erp")
+ fi
+ if [[ "$CLONE_ODOOMATES" == "yes" ]]
+ then
+     REPOS=( "${REPOS[@]}" "https://github.com/odoomates/odooapps.git ODOOMATES/odooapps")
+ fi
+ if [[ "$CLONE_MUK" == "yes" ]]
+ then
+     REPOS=( "${REPOS[@]}" "https://github.com/muk-it/muk_base.git muk/muk_base")
+     REPOS=( "${REPOS[@]}" "https://github.com/muk-it/muk_dms.git muk/muk_dms")
+     REPOS=( "${REPOS[@]}" "https://github.com/muk-it/muk_web.git muk/muk_web")
+     REPOS=( "${REPOS[@]}" "https://github.com/muk-it/muk_quality.git muk/muk_quality")
+     REPOS=( "${REPOS[@]}" "https://github.com/muk-it/muk_misc.git muk/muk_misc")
+     REPOS=( "${REPOS[@]}" "https://github.com/muk-it/muk_website.git muk/muk_website")
+     REPOS=( "${REPOS[@]}" "https://github.com/muk-it/muk_docs.git muk/muk_docs")
+ fi
  if [[ "$CLONE_GOD_LLC" == "yes" ]]
  then
      REPOS=( "${REPOS[@]}" "https://gitlab.com/gaanto/god.git gaanto/mn.systems")
